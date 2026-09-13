@@ -1,0 +1,552 @@
+{% extends 'base.html' %}
+
+{% block title %}
+AI Project Evaluator | Evaluate Smarter
+{% endblock title %}
+
+
+{% block content %}
+
+
+<!-- =========================================
+     HERO SECTION
+     ========================================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            ✦ AI-Powered Project Analysis
+        </div>
+
+
+        <h1>
+            Turn Your Project Into
+            <span>Actionable Insights.</span>
+        </h1>
+
+
+        <p>
+            Evaluate your academic and software projects with AI-powered
+            analysis, intelligent scoring, detailed feedback and
+            personalized recommendations.
+        </p>
+
+
+        <!-- HERO BUTTONS -->
+
+        <div class="hero-buttons">
+
+            <!-- Evaluate Project -->
+
+            <a
+                href="{% url 'dashboard' %}"
+                class="primary-btn"
+            >
+                Evaluate Your Project
+                <span>→</span>
+            </a>
+
+
+            <!-- Explore Features -->
+
+            <a
+                href="#features"
+                class="secondary-btn"
+            >
+                Explore Features
+            </a>
+
+        </div>
+
+
+        <!-- TRUST / STATS -->
+
+        <div class="hero-trust">
+
+            <div>
+                <strong>8+</strong>
+                <span>Evaluation Criteria</span>
+            </div>
+
+
+            <div>
+                <strong>100</strong>
+                <span>Point Scoring</span>
+            </div>
+
+
+            <div>
+                <strong>AI</strong>
+                <span>Powered Analysis</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         AI EVALUATION PREVIEW
+         ========================================= -->
+
+    <div class="hero-preview">
+
+        <div class="preview-glow"></div>
+
+
+        <div class="evaluation-card">
+
+            <div class="evaluation-header">
+
+                <div>
+
+                    <span class="small-label">
+                        PROJECT EVALUATION
+                    </span>
+
+                    <h3>
+                        AI Customer Support
+                    </h3>
+
+                </div>
+
+
+                <span class="status">
+                    ● Completed
+                </span>
+
+            </div>
+
+
+            <!-- SCORE -->
+
+            <div class="score-section">
+
+                <div class="score-circle">
+
+                    <div>
+                        <strong>87</strong>
+                        <span>/100</span>
+                    </div>
+
+                </div>
+
+
+                <div class="score-info">
+
+                    <span>
+                        Overall Score
+                    </span>
+
+                    <h4>
+                        Excellent Project
+                    </h4>
+
+                    <p>
+                        Strong technical foundation
+                        with good innovation potential.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- SCORE LIST -->
+
+            <div class="score-list">
+
+
+                <div class="score-item">
+
+                    <span>
+                        Technical Implementation
+                    </span>
+
+                    <strong>
+                        92%
+                    </strong>
+
+                </div>
+
+
+                <div class="progress">
+
+                    <div style="width: 92%;"></div>
+
+                </div>
+
+
+
+                <div class="score-item">
+
+                    <span>
+                        Innovation
+                    </span>
+
+                    <strong>
+                        84%
+                    </strong>
+
+                </div>
+
+
+                <div class="progress">
+
+                    <div style="width: 84%;"></div>
+
+                </div>
+
+
+
+                <div class="score-item">
+
+                    <span>
+                        UI / UX
+                    </span>
+
+                    <strong>
+                        79%
+                    </strong>
+
+                </div>
+
+
+                <div class="progress">
+
+                    <div style="width: 79%;"></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- AI FEEDBACK -->
+
+            <div class="ai-feedback">
+
+                <span>
+                    ✦ AI INSIGHT
+                </span>
+
+                <p>
+                    Your project has a clear problem statement
+                    and strong technical implementation.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     FEATURES SECTION
+     ========================================= -->
+
+<section
+    class="features-section"
+    id="features"
+>
+
+
+    <div class="section-heading">
+
+        <span>
+            POWERFUL FEATURES
+        </span>
+
+        <h2>
+            Everything You Need to
+            <span>Evaluate Better.</span>
+        </h2>
+
+        <p>
+            A complete AI-powered platform designed to
+            understand, analyze and improve your projects.
+        </p>
+
+    </div>
+
+
+
+    <div class="features-grid">
+
+
+        <!-- FEATURE 1 -->
+
+        <a
+            href="{% url 'dashboard' %}"
+            class="feature-card"
+        >
+
+            <div class="feature-icon">
+                ✦
+            </div>
+
+            <h3>
+                AI-Powered Analysis
+            </h3>
+
+            <p>
+                Get intelligent feedback based on your
+                project's content, technology and objectives.
+            </p>
+
+            <span class="feature-link">
+                Try Evaluation →
+            </span>
+
+        </a>
+
+
+
+        <!-- FEATURE 2 -->
+
+        <a
+            href="{% url 'dashboard' %}"
+            class="feature-card"
+        >
+
+            <div class="feature-icon">
+                ◈
+            </div>
+
+            <h3>
+                Smart Scoring
+            </h3>
+
+            <p>
+                Receive transparent scores across multiple
+                project evaluation categories.
+            </p>
+
+            <span class="feature-link">
+                Try Evaluation →
+            </span>
+
+        </a>
+
+
+
+        <!-- FEATURE 3 -->
+
+        <a
+            href="{% url 'dashboard' %}"
+            class="feature-card"
+        >
+
+            <div class="feature-icon">
+                ↗
+            </div>
+
+            <h3>
+                Actionable Feedback
+            </h3>
+
+            <p>
+                Discover your project's strengths,
+                weaknesses and areas for improvement.
+            </p>
+
+            <span class="feature-link">
+                Get Feedback →
+            </span>
+
+        </a>
+
+
+
+        <!-- FEATURE 4 -->
+
+        <a
+            href="{% url 'dashboard' %}"
+            class="feature-card"
+        >
+
+            <div class="feature-icon">
+                ◫
+            </div>
+
+            <h3>
+                Detailed Reports
+            </h3>
+
+            <p>
+                Get a professional evaluation report
+                containing your complete AI analysis.
+            </p>
+
+            <span class="feature-link">
+                Generate Report →
+            </span>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     HOW IT WORKS
+     ========================================= -->
+
+<section
+    class="how-section"
+    id="how-it-works" id="how-it-works"
+>
+
+
+    <div class="section-heading">
+
+        <span>
+            HOW IT WORKS
+        </span>
+
+        <h2>
+            From Project to
+            <span>Evaluation.</span>
+        </h2>
+
+    </div>
+
+
+
+    <div class="steps">
+
+
+        <!-- STEP 1 -->
+
+        <a
+            href="{% url 'dashboard' %}"
+            class="step"
+        >
+
+            <div class="step-number">
+                01
+            </div>
+
+            <h3>
+                Submit
+            </h3>
+
+            <p>
+                Enter your project details or upload
+                your project documentation.
+            </p>
+
+            <span class="step-link">
+                Submit Project →
+            </span>
+
+        </a>
+
+
+
+        <!-- STEP 2 -->
+
+        <a
+            href="{% url 'dashboard' %}"
+            class="step"
+        >
+
+            <div class="step-number">
+                02
+            </div>
+
+            <h3>
+                Analyze
+            </h3>
+
+            <p>
+                Our AI analyzes your project using
+                multiple evaluation criteria.
+            </p>
+
+            <span class="step-link">
+                Start Analysis →
+            </span>
+
+        </a>
+
+
+
+        <!-- STEP 3 -->
+
+        <a
+            href="{% url 'dashboard' %}"
+            class="step"
+        >
+
+            <div class="step-number">
+                03
+            </div>
+
+            <h3>
+                Improve
+            </h3>
+
+            <p>
+                Get scores, feedback and recommendations
+                to make your project stronger.
+            </p>
+
+            <span class="step-link">
+                Improve Project →
+            </span>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     FINAL CTA
+     ========================================= -->
+
+<section class="final-cta">
+
+    <div>
+
+        <span>
+            READY TO GET STARTED?
+        </span>
+
+
+        <h2>
+            See What Your Project
+            <br>
+            Is Really Worth.
+        </h2>
+
+
+        <p>
+            Let AI analyze your project and discover
+            where you can improve.
+        </p>
+
+
+        <a
+            href="{% url 'dashboard' %}"
+            class="primary-btn"
+        >
+            Start Evaluation →
+        </a>
+
+    </div>
+
+</section>
+
+
+{% endblock content %}

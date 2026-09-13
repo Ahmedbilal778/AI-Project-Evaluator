@@ -1,0 +1,207 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}
+        AI Project Evaluator
+        {% endblock title %}
+    </title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}">
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         NAVBAR
+         ========================================= -->
+
+    <nav class="navbar">
+
+
+        <!-- =====================================
+             LOGO
+             ===================================== -->
+
+        <a href="{% url 'home' %}" class="logo">
+
+            <span class="logo-icon">
+                ✦
+            </span>
+
+            <span>
+                AI Project Evaluator
+            </span>
+
+        </a>
+
+
+        <!-- =====================================
+             NAVIGATION LINKS
+             ===================================== -->
+
+        <div class="nav-links">
+
+            <!-- Home -->
+
+            <a href="{% url 'home' %}">
+                Home
+            </a>
+
+
+            <!-- Features -->
+
+            <a href="{% url 'home' %}#features">
+                Features
+            </a>
+
+
+            <!-- How It Works -->
+
+            <a href="{% url 'home' %}#how-it-works">
+                How It Works
+            </a>
+
+
+            <!-- History - Only Logged In -->
+
+            {% if user.is_authenticated %}
+
+                <a href="{% url 'history' %}">
+                    History
+                </a>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- =====================================
+             RIGHT SIDE NAVIGATION
+             ===================================== -->
+
+        <div class="nav-actions">
+
+
+            <!-- =================================
+                 THEME TOGGLE
+                 ================================= -->
+
+            <button
+                id="theme-toggle"
+                class="theme-toggle"
+                type="button"
+                aria-label="Toggle theme"
+            >
+                🌙
+            </button>
+
+
+            <!-- =================================
+                 LOGGED-IN USER
+                 ================================= -->
+
+            {% if user.is_authenticated %}
+
+
+                <!-- Dashboard -->
+
+                <a
+                    href="{% url 'dashboard' %}"
+                    class="login-btn"
+                >
+                    Dashboard
+                </a>
+
+
+                <!-- Username -->
+
+                <span class="nav-user">
+                    Hi, {{ user.username }}
+                </span>
+
+
+                <!-- Logout -->
+
+                <a
+                    href="{% url 'logout' %}"
+                    class="nav-cta"
+                >
+                    Logout
+                </a>
+
+
+            <!-- =================================
+                 LOGGED-OUT USER
+                 ================================= -->
+
+            {% else %}
+
+
+                <!-- Login -->
+
+                <a
+                    href="{% url 'login' %}"
+                    class="login-btn"
+                >
+                    Login
+                </a>
+
+
+                <!-- Register / Get Started -->
+
+                <a
+                    href="{% url 'register' %}"
+                    class="nav-cta"
+                >
+                    Get Started
+                </a>
+
+
+            {% endif %}
+
+
+        </div>
+
+
+    </nav>
+
+
+    <!-- =========================================
+         PAGE CONTENT
+         ========================================= -->
+
+    <main>
+
+        {% block content %}
+
+        {% endblock content %}
+
+    </main>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+         ========================================= -->
+
+    <script src="{% static 'js/script.js' %}">
+    </script>
+
+
+</body>
+
+</html>

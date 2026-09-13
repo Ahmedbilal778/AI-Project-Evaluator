@@ -1,0 +1,442 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Dashboard | AI Project Evaluator
+{% endblock title %}
+
+
+{% block content %}
+
+<section class="dashboard">
+
+    <!-- Dashboard Header -->
+
+    <div class="dashboard-header">
+
+        <div>
+
+            <span class="dashboard-label">
+                AI PROJECT EVALUATOR
+            </span>
+
+            <h1>
+                Evaluate your project.
+            </h1>
+
+            <p>
+                Submit your project details and let AI
+                analyze its quality, innovation and potential.
+            </p>
+
+        </div>
+
+
+        <div class="dashboard-status">
+
+            <span class="status-dot"></span>
+
+            AI Engine Ready
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         USER PROJECT STATS
+         ========================================= -->
+
+    <div class="dashboard-user-info">
+
+        <div>
+
+            <span class="dashboard-label">
+                YOUR ACCOUNT
+            </span>
+
+            <h3>
+                Welcome, {{ user.username }}
+            </h3>
+
+        </div>
+
+        <div>
+
+            <span class="dashboard-label">
+                PROJECTS EVALUATED
+            </span>
+
+            <strong>
+                {{ projects_count }}
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- Main Form -->
+
+    <form
+        method="POST"
+        enctype="multipart/form-data"
+    >
+
+        {% csrf_token %}
+
+
+        <div class="evaluation-layout">
+
+
+            <!-- =========================================
+                 LEFT SIDE — PROJECT DETAILS
+                 ========================================= -->
+
+            <div class="project-form-card">
+
+                <div class="card-heading">
+
+                    <div class="card-icon">
+                        ✦
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Project Details
+                        </h2>
+
+                        <p>
+                            Tell us about your project
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Project Name -->
+
+                <div class="form-group">
+
+                    <label for="project-name">
+                        Project Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="project-name"
+                        name="project_name"
+                        placeholder="e.g. AI Customer Support System"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Student Name -->
+
+                <div class="form-group">
+
+                    <label for="student-name">
+                        Student Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="student-name"
+                        name="student_name"
+                        placeholder="Enter student name"
+                        value="{{ user.username }}"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Project Type -->
+
+                <div class="form-group">
+
+                    <label for="project-type">
+                        Project Type
+                    </label>
+
+                    <select
+                        id="project-type"
+                        name="project_type"
+                        required
+                    >
+
+                        <option value="">
+                            Select project type
+                        </option>
+
+                        <option value="academic">
+                            Academic Project
+                        </option>
+
+                        <option value="minor">
+                            Minor Project
+                        </option>
+
+                        <option value="major">
+                            Major Project
+                        </option>
+
+                        <option value="personal">
+                            Personal Project
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Description -->
+
+                <div class="form-group">
+
+                    <label for="project-description">
+                        Project Description
+                    </label>
+
+                    <textarea
+                        id="project-description"
+                        name="project_description"
+                        rows="6"
+                        placeholder="Describe what your project does, the problem it solves and its main functionality..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Technology -->
+
+                <div class="form-group">
+
+                    <label for="technology">
+                        Technology Stack
+                    </label>
+
+                    <input
+                        type="text"
+                        id="technology"
+                        name="technology"
+                        placeholder="e.g. Python, Django, MySQL, JavaScript"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Problem Statement -->
+
+                <div class="form-group">
+
+                    <label for="problem-statement">
+                        Problem Statement
+                    </label>
+
+                    <textarea
+                        id="problem-statement"
+                        name="problem_statement"
+                        rows="5"
+                        placeholder="What problem does your project solve?"
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Objectives -->
+
+                <div class="form-group">
+
+                    <label for="objectives">
+                        Project Objectives
+                    </label>
+
+                    <textarea
+                        id="objectives"
+                        name="objectives"
+                        rows="5"
+                        placeholder="What are the main objectives of your project?"
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Submit Button -->
+
+                <button
+                    type="submit"
+                    class="evaluate-btn"
+                >
+
+                    <span>
+                        ✦
+                    </span>
+
+                    Evaluate Project
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- =========================================
+                 RIGHT SIDE
+                 ========================================= -->
+
+            <div class="dashboard-side">
+
+
+                <!-- Upload Card -->
+
+                <div class="upload-card">
+
+                    <div class="upload-icon">
+                        ↑
+                    </div>
+
+                    <h3>
+                        Upload Project Document
+                    </h3>
+
+                    <p>
+                        Upload your project report,
+                        synopsis or documentation.
+                    </p>
+
+
+                    <label class="upload-btn">
+
+                        Choose File
+
+                        <input
+                            type="file"
+                            name="project_file"
+                            accept=".pdf,.doc,.docx"
+                            hidden
+                        >
+
+                    </label>
+
+
+                    <small>
+                        PDF, DOC or DOCX
+                    </small>
+
+                </div>
+
+
+                <!-- Evaluation Criteria -->
+
+                <div class="criteria-card">
+
+                    <div class="criteria-header">
+
+                        <h3>
+                            Evaluation Criteria
+                        </h3>
+
+                        <span>
+                            100 Points
+                        </span>
+
+                    </div>
+
+
+                    <div class="criteria-item">
+
+                        <span>
+                            Technical Implementation
+                        </span>
+
+                        <strong>
+                            25
+                        </strong>
+
+                    </div>
+
+
+                    <div class="criteria-item">
+
+                        <span>
+                            Innovation
+                        </span>
+
+                        <strong>
+                            20
+                        </strong>
+
+                    </div>
+
+
+                    <div class="criteria-item">
+
+                        <span>
+                            Functionality
+                        </span>
+
+                        <strong>
+                            20
+                        </strong>
+
+                    </div>
+
+
+                    <div class="criteria-item">
+
+                        <span>
+                            UI / UX
+                        </span>
+
+                        <strong>
+                            15
+                        </strong>
+
+                    </div>
+
+
+                    <div class="criteria-item">
+
+                        <span>
+                            Problem Solving
+                        </span>
+
+                        <strong>
+                            10
+                        </strong>
+
+                    </div>
+
+
+                    <div class="criteria-item">
+
+                        <span>
+                            Scalability
+                        </span>
+
+                        <strong>
+                            10
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</section>
+
+{% endblock content %}

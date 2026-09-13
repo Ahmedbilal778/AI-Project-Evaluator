@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Delete Project | AI Project Evaluator
+{% endblock title %}
+
+
+{% block content %}
+
+<section class="delete-page">
+
+    <div class="delete-card">
+
+        <!-- Icon -->
+
+        <div class="delete-icon">
+            ⚠
+        </div>
+
+
+        <!-- Heading -->
+
+        <span class="dashboard-label">
+            AI PROJECT EVALUATOR
+        </span>
+
+        <h1>
+            Delete Project?
+        </h1>
+
+        <p class="delete-message">
+            Are you sure you want to delete this project?
+            This action cannot be undone.
+        </p>
+
+
+        <!-- Project Information -->
+
+        <div class="delete-project-info">
+
+            <span>
+                PROJECT
+            </span>
+
+            <h2>
+                {{ project.project_name }}
+            </h2>
+
+            <p>
+                {{ project.student_name }}
+            </p>
+
+        </div>
+
+
+        <!-- Buttons -->
+
+        <div class="delete-actions">
+
+            <a
+                href="{% url 'history' %}"
+                class="cancel-delete-btn"
+            >
+                Cancel
+            </a>
+
+
+            <form
+                method="POST"
+                action="{% url 'delete_project' project.id %}"
+            >
+
+                {% csrf_token %}
+
+                <button
+                    type="submit"
+                    class="confirm-delete-btn"
+                >
+                    Delete Project
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock content %}

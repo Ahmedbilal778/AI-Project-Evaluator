@@ -1,0 +1,423 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Evaluation Result | AI Project Evaluator
+{% endblock title %}
+
+
+{% block content %}
+
+<section class="evaluation-page">
+
+    <!-- Header -->
+
+    <div class="evaluation-header">
+
+        <span class="dashboard-label">
+            AI PROJECT EVALUATOR
+        </span>
+
+        <h1>
+            Evaluation Result
+        </h1>
+
+        <p>
+            AI-powered analysis of your project.
+        </p>
+
+    </div>
+
+
+    <!-- Project Summary -->
+
+    <div class="result-project-card">
+
+        <div>
+
+            <span class="result-label">
+                PROJECT
+            </span>
+
+            <h2>
+                {{ project.project_name }}
+            </h2>
+
+            <p>
+                {{ project.student_name }}
+            </p>
+
+        </div>
+
+        <div class="project-type-badge">
+            {{ project.project_type|title }}
+        </div>
+
+    </div>
+
+
+    <!-- Overall Score -->
+
+    <div class="overall-score-card">
+
+        <div>
+
+            <span class="result-label">
+                OVERALL SCORE
+            </span>
+
+            <h2>
+                {{ evaluation.overall_score }}/100
+            </h2>
+
+            <p>
+                Overall project evaluation score
+            </p>
+
+        </div>
+
+        <div class="score-circle"
+             style="--score: {{ evaluation.overall_score }}%;">
+
+            <span>
+                {{ evaluation.overall_score }}
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- Evaluation Scores -->
+
+    <div class="scores-section">
+
+        <div class="section-heading">
+
+            <h2>
+                Evaluation Breakdown
+            </h2>
+
+            <p>
+                Detailed assessment across multiple criteria.
+            </p>
+
+        </div>
+
+
+        <div class="scores-grid">
+
+
+            <!-- Problem Statement -->
+
+            <div class="score-card">
+
+                <div class="score-card-top">
+
+                    <span>
+                        Problem Statement
+                    </span>
+
+                    <strong>
+                        {{ evaluation.problem_statement_score }}/100
+                    </strong>
+
+                </div>
+
+                <div class="progress-bar">
+                    <div
+                        class="progress-fill"
+                        style="width: {{ evaluation.problem_statement_score }}%;">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Innovation -->
+
+            <div class="score-card">
+
+                <div class="score-card-top">
+
+                    <span>
+                        Innovation
+                    </span>
+
+                    <strong>
+                        {{ evaluation.innovation_score }}/100
+                    </strong>
+
+                </div>
+
+                <div class="progress-bar">
+                    <div
+                        class="progress-fill"
+                        style="width: {{ evaluation.innovation_score }}%;">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Technical -->
+
+            <div class="score-card">
+
+                <div class="score-card-top">
+
+                    <span>
+                        Technical Implementation
+                    </span>
+
+                    <strong>
+                        {{ evaluation.technical_score }}/100
+                    </strong>
+
+                </div>
+
+                <div class="progress-bar">
+                    <div
+                        class="progress-fill"
+                        style="width: {{ evaluation.technical_score }}%;">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Functionality -->
+
+            <div class="score-card">
+
+                <div class="score-card-top">
+
+                    <span>
+                        Functionality
+                    </span>
+
+                    <strong>
+                        {{ evaluation.functionality_score }}/100
+                    </strong>
+
+                </div>
+
+                <div class="progress-bar">
+                    <div
+                        class="progress-fill"
+                        style="width: {{ evaluation.functionality_score }}%;">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- UI UX -->
+
+            <div class="score-card">
+
+                <div class="score-card-top">
+
+                    <span>
+                        UI / UX
+                    </span>
+
+                    <strong>
+                        {{ evaluation.ui_ux_score }}/100
+                    </strong>
+
+                </div>
+
+                <div class="progress-bar">
+                    <div
+                        class="progress-fill"
+                        style="width: {{ evaluation.ui_ux_score }}%;">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Architecture -->
+
+            <div class="score-card">
+
+                <div class="score-card-top">
+
+                    <span>
+                        Architecture
+                    </span>
+
+                    <strong>
+                        {{ evaluation.architecture_score }}/100
+                    </strong>
+
+                </div>
+
+                <div class="progress-bar">
+                    <div
+                        class="progress-fill"
+                        style="width: {{ evaluation.architecture_score }}%;">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Documentation -->
+
+            <div class="score-card">
+
+                <div class="score-card-top">
+
+                    <span>
+                        Documentation
+                    </span>
+
+                    <strong>
+                        {{ evaluation.documentation_score }}/100
+                    </strong>
+
+                </div>
+
+                <div class="progress-bar">
+                    <div
+                        class="progress-fill"
+                        style="width: {{ evaluation.documentation_score }}%;">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Security -->
+
+            <div class="score-card">
+
+                <div class="score-card-top">
+
+                    <span>
+                        Security
+                    </span>
+
+                    <strong>
+                        {{ evaluation.security_score }}/100
+                    </strong>
+
+                </div>
+
+                <div class="progress-bar">
+                    <div
+                        class="progress-fill"
+                        style="width: {{ evaluation.security_score }}%;">
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- AI Analysis -->
+
+    <div class="analysis-grid">
+
+
+        <!-- Strengths -->
+
+        <div class="analysis-card">
+
+            <div class="analysis-icon">
+                ✓
+            </div>
+
+            <h3>
+                Strengths
+            </h3>
+
+            <p>
+                {{ evaluation.strengths|linebreaksbr }}
+            </p>
+
+        </div>
+
+
+        <!-- Weaknesses -->
+
+        <div class="analysis-card">
+
+            <div class="analysis-icon">
+                !
+            </div>
+
+            <h3>
+                Areas to Improve
+            </h3>
+
+            <p>
+                {{ evaluation.weaknesses|linebreaksbr }}
+            </p>
+
+        </div>
+
+
+        <!-- Recommendations -->
+
+        <div class="analysis-card">
+
+            <div class="analysis-icon">
+                →
+            </div>
+
+            <h3>
+                Recommendations
+            </h3>
+
+            <p>
+                {{ evaluation.recommendations|linebreaksbr }}
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- AI Feedback -->
+
+    <div class="ai-feedback-card">
+
+        <div class="ai-feedback-header">
+
+            <div class="card-icon">
+                ✦
+            </div>
+
+            <div>
+
+                <h2>
+                    AI Feedback
+                </h2>
+
+                <p>
+                    Personalized feedback generated for your project.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="ai-feedback-content">
+
+            {{ evaluation.ai_feedback }}
+
+        </div>
+
+    </div>
+
+
+</section>
+
+{% endblock content %}

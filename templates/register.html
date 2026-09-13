@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Create Account | AI Project Evaluator
+{% endblock title %}
+
+
+{% block content %}
+
+<section class="auth-page">
+
+    <div class="auth-card">
+
+        <div class="auth-icon">
+            ✦
+        </div>
+
+        <span class="dashboard-label">
+            AI PROJECT EVALUATOR
+        </span>
+
+        <h1>
+            Create your account
+        </h1>
+
+        <p class="auth-subtitle">
+            Start evaluating your projects with AI.
+        </p>
+
+
+        {% if error %}
+            <div class="auth-error">
+                {{ error }}
+            </div>
+        {% endif %}
+
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="form-group">
+
+                <label>
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="Enter your username"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Create a password"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Confirm Password
+                </label>
+
+                <input
+                    type="password"
+                    name="confirm_password"
+                    placeholder="Confirm your password"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="evaluate-btn"
+            >
+                Create Account
+                <span>→</span>
+            </button>
+
+        </form>
+
+
+        <p class="auth-switch">
+            Already have an account?
+
+            <a href="{% url 'login' %}">
+                Login
+            </a>
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock content %}

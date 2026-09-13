@@ -1,0 +1,185 @@
+{% extends 'base.html' %} 
+ 
+{% block title %} 
+Evaluation History | AI Project Evaluator 
+{% endblock title %} 
+ 
+{% block content %} 
+ 
+<section class="evaluation-page"> 
+ 
+    <!-- HEADER --> 
+    <div class="evaluation-header"> 
+ 
+        <span class="dashboard-label"> 
+            AI PROJECT EVALUATOR 
+        </span> 
+ 
+        <h1> 
+            Evaluation History 
+        </h1> 
+ 
+        <p> 
+            View your previously evaluated projects. 
+        </p> 
+ 
+    </div> 
+ 
+ 
+    {% if projects %} 
+ 
+        <!-- STATISTICS --> 
+        <div class="history-stats"> 
+ 
+            <div class="history-stat-card"> 
+                <span class="stat-label">TOTAL PROJECTS</span> 
+ 
+                <strong> 
+                    {{ total_projects }} 
+                </strong> 
+ 
+                <p>Projects evaluated</p> 
+            </div> 
+ 
+ 
+            <div class="history-stat-card"> 
+                <span class="stat-label">AVERAGE SCORE</span> 
+ 
+                <strong> 
+                    {{ average_score }} 
+                </strong> 
+ 
+                <p>Out of 100</p> 
+            </div> 
+ 
+ 
+            <div class="history-stat-card"> 
+                <span class="stat-label">HIGHEST SCORE</span> 
+ 
+                <strong> 
+                    {{ highest_score }} 
+                </strong> 
+ 
+                <p>Best evaluation</p> 
+            </div> 
+ 
+        </div> 
+ 
+ 
+        <!-- PROJECT HISTORY --> 
+        <div class="history-grid"> 
+ 
+            {% for project in projects %} 
+ 
+                <div class="history-card"> 
+ 
+                    <div class="history-card-header"> 
+ 
+                        <div> 
+ 
+                            <span class="result-label"> 
+                                PROJECT 
+                            </span> 
+ 
+                            <h2> 
+                                {{ project.project_name }} 
+                            </h2> 
+ 
+                        </div> 
+ 
+ 
+                        <div class="history-score"> 
+ 
+                            {% if project.evaluation %} 
+                                {{ project.evaluation.overall_score }} 
+                            {% else %} 
+                                0 
+                            {% endif %} 
+ 
+                            <small>/100</small> 
+ 
+                        </div> 
+ 
+                    </div> 
+ 
+ 
+                    <p class="history-student"> 
+                        {{ project.student_name }} 
+                    </p> 
+ 
+ 
+                    <div class="history-meta"> 
+ 
+                        <span> 
+                            {{ project.project_type|title }} 
+                        </span> 
+ 
+                        <span> 
+                            {{ project.created_at|date:"d M Y" }} 
+                        </span> 
+ 
+                    </div> 
+ 
+ 
+                    <!-- ACTION BUTTONS --> 
+                    <div class="history-actions"> 
+ 
+                        <a 
+                            href="{% url 'evaluation' project.id %}" 
+                            class="history-btn" 
+                        > 
+                            View Evaluation 
+                            <span>→</span> 
+                        </a> 
+ 
+                        <form
+                         method="GET"
+                         action="{% url 'delete_project' project.id %}"
+                        >
+                        <button
+                         type="submit"
+                         class="delete-btn"
+                         >
+                         Delete
+                         </button>
+                        </form>
+                    </div> 
+ 
+                </div> 
+ 
+            {% endfor %} 
+ 
+        </div> 
+ 
+ 
+    {% else %} 
+ 
+        <!-- EMPTY HISTORY --> 
+        <div class="empty-history"> 
+ 
+            <div class="empty-icon"> 
+                ✦ 
+            </div> 
+ 
+            <h2> 
+                No Evaluations Yet 
+            </h2> 
+ 
+            <p> 
+                Submit your first project to see its evaluation here. 
+            </p> 
+ 
+            <a 
+                href="{% url 'dashboard' %}" 
+                class="evaluate-btn" 
+            > 
+                Evaluate Project → 
+            </a> 
+ 
+        </div> 
+ 
+    {% endif %} 
+ 
+</section> 
+ 
+{% endblock content %}
