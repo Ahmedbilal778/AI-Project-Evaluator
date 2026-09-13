@@ -1,0 +1,7 @@
+Django==6.1
+google-genai
+python-dotenv
+pypdf
+python-docx
+mysqlclient
+gunicorn
