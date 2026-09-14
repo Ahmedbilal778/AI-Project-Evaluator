@@ -5,4 +5,4 @@ pypdf
 python-docx
 mysqlclient
 gunicorn
-whitenoise
+whitenoise 

@@ -117,31 +117,21 @@ WSGI_APPLICATION = "evaluator.wsgi.application"
 
 DB_HOST = os.getenv("DB_HOST", "localhost")
 
+DB_HOST = os.getenv("DB_HOST", "localhost")
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
 
-        "NAME": os.getenv(
-            "DB_NAME",
-            "ai_project_evaluator"
-        ),
-
-        "USER": os.getenv(
-            "DB_USER",
-            "root"
-        ),
-
-        "PASSWORD": os.getenv(
-            "DB_PASSWORD",
-            ""
-        ),
-
+        "NAME": os.getenv("DB_NAME", "ai_project_evaluator"),
+        "USER": os.getenv("DB_USER", "root"),
+        "PASSWORD": os.getenv("DB_PASSWORD", "bilal@4311"),
         "HOST": DB_HOST,
+        "PORT": os.getenv("DB_PORT", "3306"),
 
-        "PORT": os.getenv(
-            "DB_PORT",
-            "3306"
-        ),
+        "OPTIONS": {
+            "ssl_mode": "REQUIRED",
+        },
 
         "CONN_MAX_AGE": 60,
     }
