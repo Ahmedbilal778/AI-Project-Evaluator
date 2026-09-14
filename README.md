@@ -5,9 +5,25 @@ An AI-powered web application that evaluates academic and software projects usin
 The platform analyzes project details and uploaded documentation or source code, then provides intelligent scores, strengths, weaknesses, recommendations, and personalized AI feedback.
 
 ---
+## 🌐 Live Demo
+
+🚀 **Live Application:**  
+https://ai-project-evaluator-x6z9.onrender.com/
+
+
+## ☁️ Deployment
+The application is deployed using:
+
+- Render — Web application hosting
+- Aiven — Cloud MySQL database
+- Google Gemini API — AI evaluation
+
+The production application uses environment variables for database credentials, Django secret key, and Gemini API key.
+
+GitHub URL:
+https://github.com/Ahmedbilal778/AI-Project-Evaluator
 
 ## 🚀 Features
-
 - 🔐 User Registration & Login
 - 📊 Project Evaluation Dashboard
 - 🤖 Gemini AI-Powered Project Evaluation
@@ -263,27 +279,21 @@ API credentials are not stored directly inside the source code.
 
 📚 Main Application Pages
 Home:
-
 Introduces the platform, its features, workflow, and AI evaluation capabilities.
 
 Register:
-
 Allows new users to create an account.
 
 Login:
-
 Authenticates existing users.
 
 Dashboard:
-
 Allows users to submit project details and upload documentation/source code.
 
 Evaluation Result:
-
 Displays the complete AI-generated evaluation.
 
 Evaluation History:
-
 Shows previously evaluated projects along with:
 
 -Total Projects
@@ -299,7 +309,6 @@ Provides a confirmation screen before permanently deleting a project.
 📈 Score Charts & Visualizations
 👨‍🏫 Teacher / Admin Panel
 📱 Further Mobile Optimization
-☁️ Cloud Deployment
 🔔 Notifications
 📌 Project Comparison
 📚 Evaluation Export
